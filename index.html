@@ -2,8 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>For You 💌</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       height: 100vh;
@@ -12,62 +18,65 @@
       align-items: center;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
     }
 
     .card {
       background: white;
-      padding: 40px;
+      padding: 30px 20px;
       border-radius: 20px;
       text-align: center;
+      width: 100%;
+      max-width: 360px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      max-width: 350px;
     }
 
     h1 {
       color: #ff4d6d;
       margin-bottom: 10px;
+      font-size: 24px;
     }
 
     p {
       color: #555;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
+      font-size: 15px;
+      line-height: 1.5;
     }
 
     .buttons {
       position: relative;
-      height: 80px;
+      height: 100px;
     }
 
     button {
-      padding: 12px 25px;
+      width: 120px;
+      padding: 12px 0;
       font-size: 16px;
       border: none;
       border-radius: 25px;
       cursor: pointer;
-      transition: 0.3s;
     }
 
     #yesBtn {
       background-color: #ff4d6d;
       color: white;
-    }
-
-    #yesBtn:hover {
-      background-color: #e63e5c;
+      margin-right: 10px;
     }
 
     #noBtn {
-      background-color: #ccc;
+      background-color: #ddd;
       color: #333;
       position: absolute;
       right: 0;
+      top: 0;
     }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <h1>Hi, baby ko, baby kong napakapogiiiiii hihihi</h1>
+    <h1>hi, baby ko, baby kong napakapogiiiiii hihihi</h1>
     <p>
       I know we're not okay today, and we 
       have a misunderstaning, still 
@@ -78,7 +87,7 @@
 
     <div class="buttons">
       <button id="yesBtn" onclick="yesClick()">Yes 💘</button>
-      <button id="noBtn" onmouseover="moveNo()">No 🙃</button>
+      <button id="noBtn" onclick="moveNo()">No 🙃</button>
     </div>
   </div>
 
@@ -96,7 +105,7 @@
           color:#fff;
           padding:20px;
         ">
-          <h1>
+          <h1 style="font-size:26px;">
             Yayyyy 💖😭<br><br>
             Thank you for saying yes.<br>
             I promise I’ll make it worth it 🫶
@@ -107,8 +116,13 @@
 
     function moveNo() {
       const noBtn = document.getElementById("noBtn");
-      const x = Math.random() * 200 - 100;
-      const y = Math.random() * 200 - 100;
+
+      const maxX = 200;
+      const maxY = 60;
+
+      const x = Math.random() * maxX - maxX / 2;
+      const y = Math.random() * maxY - maxY / 2;
+
       noBtn.style.transform = `translate(${x}px, ${y}px)`;
     }
   </script>
